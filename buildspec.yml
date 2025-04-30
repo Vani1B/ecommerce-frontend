@@ -10,10 +10,11 @@ phases:
     commands:
       - npm run build
       - echo Deploying to S3 bucket...
-      - aws s3 sync build/ s3://frontend-vani-bucket/ --delete
+      - cd build
+      - aws s3 sync . s3://frontend-vani-bucket/ --delete
 
 artifacts:
   files:
     - '**/*'
-  discard-paths: yes
+
 
